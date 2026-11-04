@@ -1,0 +1,13 @@
+# Local guardrails: run `pre-commit install` once per clone. Gitleaks uses .gitleaks.toml from the repo root.
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: detect-private-key
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: ['--maxkb=500']
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.21.2
+    hooks:
+      - id: gitleaks
