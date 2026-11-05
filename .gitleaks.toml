@@ -1,0 +1,33 @@
+# Gitleaks config: the default ruleset plus rules for keys Magpie's developers are likely to have on hand
+# (Anthropic, Expo) and Magpie's own per-user API token.
+# Keep this file generic: never add personal names, hostnames, Apple Team IDs or other identifiers here.
+
+title = "Magpie gitleaks config"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "magpie-anthropic-api-key"
+description = "Anthropic API or admin key"
+regex = '''\b(sk-ant-(?:api|admin)\d{2}-[A-Za-z0-9_\-]{20,})'''
+secretGroup = 1
+keywords = ["sk-ant-"]
+
+[[rules]]
+id = "magpie-expo-token"
+description = "Expo / EAS access token"
+regex = '''(?i)(?:expo|eas)[\w.\-]{0,20}token['"]?\s*(?:=|:|:=|=>|\s)\s*['"]?([A-Za-z0-9_\-]{30,})\b'''
+secretGroup = 1
+keywords = ["expo", "eas"]
+
+[[rules]]
+id = "magpie-api-token"
+description = "Magpie per-user API token in a Bearer header or config"
+regex = '''(?i)(?:magpie[\w.\-]{0,20}token|api_token|bearer)['"]?\s*(?:=|:|:=|=>|\s)\s*['"]?([A-Za-z0-9_\-]{24,})\b'''
+secretGroup = 1
+keywords = ["token", "bearer"]
+
+[allowlist]
+description = "Documentation placeholders"
+regexes = ['''YOUR_API_KEY_HERE''', '''00000000-0000-0000-0000-000000000000''']

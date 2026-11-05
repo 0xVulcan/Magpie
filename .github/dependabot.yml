@@ -1,0 +1,8 @@
+# Public repo: README, screenshots and Releases only, so the only dependencies are the SHA-pinned GitHub
+# Actions in the Security Gate. Source dependencies (npm) are tracked in the private source repo.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

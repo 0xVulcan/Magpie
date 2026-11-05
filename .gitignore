@@ -1,0 +1,62 @@
+# Everything Magpie produces at runtime (the user's library) lives under data/. None of it goes into git.
+data/
+blobs/
+cache/
+output/
+backups/
+
+# Databases and their write-ahead / shared-memory files
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.wal
+*.shm
+
+# Network and debug captures
+*.log
+*.har
+*.pcap
+*.pcapng
+
+# Local secrets and machine config
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p8
+*.p12
+*.pfx
+*.cer
+*.mobileprovision
+*.provisionprofile
+
+# Dependencies and builds (release binaries go to GitHub Releases, not git)
+node_modules/
+build/
+dist/
+web/dist/
+*.dmg
+*.pkg
+*.app/
+*.exe
+*.ipa
+*.xpi
+*.crx
+
+# Expo / React Native build output
+mobile/.expo/
+mobile/ios/build/
+mobile/android/build/
+
+# Test runs that create browser profiles (cookies, history, logins): ignore the whole scratch folder
+**/.scratch/
+
+# Editor / OS clutter, including Finder duplicates ("App 2.tsx")
+.DS_Store
+.AppleDouble
+.LSOverride
+* 2.*
+.vscode/
+.idea/
