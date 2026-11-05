@@ -1,16 +1,7 @@
-# Weekly update checks for the packages and the SHA-pinned GitHub Actions.
-# Security fixes are proposed as soon as an advisory is published, independent of this schedule.
-# Dependabot skips a directory with no manifest; add an entry for any other folder with its own package.json.
+# Public repo: README, screenshots and Releases only, so the only dependencies are the SHA-pinned GitHub
+# Actions in the Security Gate. Source dependencies (npm) are tracked in the private source repo.
 version: 2
 updates:
-  - package-ecosystem: npm
-    directory: /
-    schedule:
-      interval: weekly
-  - package-ecosystem: npm
-    directory: /mobile
-    schedule:
-      interval: weekly
   - package-ecosystem: github-actions
     directory: /
     schedule:
